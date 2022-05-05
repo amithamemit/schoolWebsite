@@ -19,11 +19,24 @@ namespace SignPage_AmitHarit
                 string username = Request.Form["username"];
                 string email = Request.Form["email"];
                 string id = Request.Form["id"];
-                string pass = Request.Form["pass"];
+                string password = Request.Form["pass"];
                 string conPass = Request.Form["conPass"];
                 string gender = Request.Form["gender"];
                 string birthYear = Request.Form["birthYear"];
 
+                string sql = "SELECT * FROM users WHERE username='" + username + "'";
+                if (MyAdoHelper.IsExist("DB.mdb", sql))
+                {
+                    Response.Write("User already exists!");
+                }
+                else if (!validParameters(email, id, password, conPass))
+                    Response.Write("Invalid parameters!");
+                else
+                {
+                    string sql2 = "INSERT INTO users VALUES ('" + username + "','" + fName + "','" + lName + "','" + email + "','" + id + "','" + password + "','" + gender + "','" + birthYear + "')";
+                    MyAdoHelper.DoQuery("DB.mdb", sql2);
+                    Response.Redirect("login.aspx");
+                }
                 
             }
         }
@@ -33,7 +46,7 @@ namespace SignPage_AmitHarit
          * input: email, user id and password
          * ouput: bool (valid or not)
         */
-        private static bool validParameters(string email, string id, string password)
+        private static bool validParameters(string email, string id, string password, string conPass)
         {
             var trimmedEmail = email.Trim();
 
@@ -66,6 +79,8 @@ namespace SignPage_AmitHarit
 
             Match m = p.Match(password); //using regex to check if password contains uppercase, lowerse, numeric and special characters
 
+            if (password != conPass)
+                return false;
 
             if (!m.Success || password.Length <= 8)
                 return false;

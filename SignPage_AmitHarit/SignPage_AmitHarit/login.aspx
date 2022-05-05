@@ -16,6 +16,12 @@
     <title></title>
 </head>
 <body>
+    <style type="text/css">
+        body {
+            background-image: url("geonte.png");
+            background-size: cover;
+        }
+    </style>
     <form method ="post" action="">
 
     <div class="register" >

@@ -108,7 +108,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="login.aspx" />
-    <Content Include="signup.html" />
     <Content Include="Site.Master" />
     <Content Include="stylish.css" />
     <Content Include="ViewSwitcher.ascx" />

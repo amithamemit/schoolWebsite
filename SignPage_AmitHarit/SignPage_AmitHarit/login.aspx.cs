@@ -14,9 +14,16 @@ namespace SignPage_AmitHarit
             if (Request.Form["submitLogin"] != null)
             {
                 string username = Request.Form["username"];
-                string pass = Request.Form["pass"];
+                string password = Request.Form["pass"];
 
-                
+                string sql = "SELECT * FROM USERS WHERE username='"+username+"' AND password='"+password+"'";
+                if (MyAdoHelper.IsExist("DB.mdb", sql))
+                {
+                    Session["username"] = username;
+
+                    Response.Redirect("Home.aspx");
+                }
+
             }
 
         }
