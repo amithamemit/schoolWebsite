@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Home.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Site.Master" />
     <Content Include="stylish.css" />
@@ -120,6 +121,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="helper.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,7 +163,9 @@
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">

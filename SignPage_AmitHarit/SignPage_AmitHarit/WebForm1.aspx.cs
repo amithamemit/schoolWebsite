@@ -25,7 +25,7 @@ namespace SignPage_AmitHarit
                 string birthYear = Request.Form["birthYear"];
 
                 string sql = "SELECT * FROM users WHERE username='" + username + "'";
-                if (MyAdoHelper.IsExist("DB.mdb", sql))
+                if (MyAdoHelper.IsExist("website1.mdb", sql))
                 {
                     Response.Write("User already exists!");
                 }
@@ -34,7 +34,7 @@ namespace SignPage_AmitHarit
                 else
                 {
                     string sql2 = "INSERT INTO users VALUES ('" + username + "','" + fName + "','" + lName + "','" + email + "','" + id + "','" + password + "','" + gender + "','" + birthYear + "')";
-                    MyAdoHelper.DoQuery("DB.mdb", sql2);
+                    MyAdoHelper.DoQuery("website1.mdb", sql2);
                     Response.Redirect("login.aspx");
                 }
                 

@@ -17,7 +17,7 @@ namespace SignPage_AmitHarit
                 string password = Request.Form["pass"];
 
                 string sql = "SELECT * FROM USERS WHERE username='"+username+"' AND password='"+password+"'";
-                if (MyAdoHelper.IsExist("DB.mdb", sql))
+                if (MyAdoHelper.IsExist("website1.mdb", sql))
                 {
                     Session["username"] = username;
 
