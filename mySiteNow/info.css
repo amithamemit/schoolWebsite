@@ -1,0 +1,33 @@
+﻿body {
+
+}
+
+h1 {
+    text-align:center;
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: transparent;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+btn btn-info btn-lg {
+    position: absolute;
+    right: 0;
+}
